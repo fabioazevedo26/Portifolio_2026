@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects - Engineer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e6e0e9",
+                        "on-primary-container": "#e0d2ff",
+                        "surface-bright": "#3b383e",
+                        "surface-dim": "#141218",
+                        "inverse-primary": "#6750a4",
+                        "secondary-fixed": "#e9ddff",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-secondary-fixed": "#1f1635",
+                        "surface-container-lowest": "#0f0d13",
+                        "on-primary": "#381e72",
+                        "background": "#141218",
+                        "outline": "#948e9c",
+                        "on-tertiary-container": "#503d00",
+                        "primary": "#cfbcff",
+                        "on-tertiary": "#3e2e00",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#141218",
+                        "outline-variant": "#494551",
+                        "surface-container-highest": "#36343a",
+                        "secondary-container": "#4d4465",
+                        "surface-tint": "#cfbcff",
+                        "on-secondary": "#342b4b",
+                        "secondary": "#cdc0e9",
+                        "on-surface-variant": "#cbc4d2",
+                        "surface-container-high": "#2b292f",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "primary-fixed": "#e9ddff",
+                        "inverse-surface": "#e6e0e9",
+                        "surface-variant": "#36343a",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1d1b20",
+                        "inverse-on-surface": "#322f35",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "primary-fixed-dim": "#cfbcff",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "tertiary-container": "#c9a74d",
+                        "on-tertiary-fixed": "#241a00",
+                        "tertiary-fixed": "#ffdf93",
+                        "surface-container": "#211f24",
+                        "on-secondary-container": "#bfb2da",
+                        "on-surface": "#e6e0e9",
+                        "primary-container": "#6750a4",
+                        "tertiary": "#e7c365",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#22005d",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Geist"],
+                        "code-sm": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Geist"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "code-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F172A;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass-panel {
+            background-color: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-accent {
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+        }
+        .tag-hardware {
+            color: #F97316;
+            background-color: rgba(249, 115, 22, 0.1);
+        }
+        .tag-software {
+            color: #06B6D4;
+            background-color: rgba(6, 182, 212, 0.1);
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased min-h-screen flex flex-col pt-16 md:pl-64 md:pt-0">
+<!-- TopNavBar (Mobile) -->
+<nav class="md:hidden bg-surface/80 dark:bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-[0_0_20px_rgba(207,188,255,0.1)]">
+<div class="flex justify-between items-center h-16 px-margin-mobile max-w-container-max mx-auto">
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tighter">ENGINEER_PORTFOLIO</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-surface-container-low/90 dark:bg-surface-container-low/90 backdrop-blur-md border-r border-white/10 flex-col gap-4 p-6 z-40">
+<div class="mb-8">
+<span class="font-headline-sm text-headline-sm text-primary block">Lead Architect</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mt-1">System Engineering</span>
+</div>
+<nav class="flex flex-col gap-2 flex-grow font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-on-surface px-4 py-2 flex items-center gap-3 hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Overview
+            </a>
+<a class="bg-primary-container text-on-primary-container rounded-lg px-4 py-2 flex items-center gap-3 hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">terminal</span>
+                Projects
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface px-4 py-2 flex items-center gap-3 hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">memory</span>
+                Experience
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface px-4 py-2 flex items-center gap-3 hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">developer_board</span>
+                Hardware
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface px-4 py-2 flex items-center gap-3 hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+                Contact
+            </a>
+</nav>
+<button class="mt-auto py-3 px-4 bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-opacity w-full glow-accent">
+            Hire Me
+        </button>
+</aside>
+<!-- Main Content -->
+<main class="flex-grow p-margin-mobile md:p-margin-desktop max-w-container-max mx-auto w-full">
+<header class="mb-12">
+<h1 class="font-display-lg text-display-lg text-on-background mb-4">Project Archive</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A curated selection of systemic engineering challenges, focusing on the intersection of hardware integration, scalable backend architecture, and robust automation protocols.</p>
+</header>
+<!-- Bento Grid Projects -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Card 1: ESP32 IoT Nodes -->
+<article class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:glow-accent transition-shadow duration-300">
+<div class="h-48 relative overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up macro photography of a sophisticated custom printed circuit board (PCB) featuring an ESP32 microcontroller. The board is bathed in dramatic, high-contrast cyan and deep blue neon lighting, creating an atmosphere of advanced technological espionage or cyberpunk aesthetics. Intricate copper traces and surface-mount components are sharply in focus against a deep, dark slate background. Modern, ultra-detailed tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkgEv5YDv7X12udIl6ciA3fkjFhyo9XOcjpBSBmon9uC2yb7ZXDOmDZILuKAJyjor0zWcsn8mQonrRSm_JU0jXjYCRgFXoTEHwjeTKsM1anMibSjkK_evd3pLo_WzRHp4xOmoxqGgrjsNLg3oHnYk03qs96jzJG3VJUKDihN7pQqsxnJDssU0ple3Csv08tOICVdKWhXFuPwREhOqOuXejmfhEHzdlBkX1RmnMOUiJCGitV-3IpAyS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1E293B] to-transparent"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex gap-2 mb-4">
+<span class="font-code-sm text-code-sm px-2 py-1 rounded tag-hardware border border-[#F97316]/30">Hardware</span>
+<span class="font-code-sm text-code-sm px-2 py-1 rounded tag-software border border-[#06B6D4]/30">C++</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">ESP32 Sensor Mesh</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Distributed environmental monitoring nodes utilizing low-power ESP32 modules communicating via MQTT over a self-healing mesh network.</p>
+<div class="mt-auto border-t border-white/10 pt-4 flex justify-between items-center font-code-sm text-code-sm text-on-surface-variant">
+<span>v2.1.4-stable</span>
+<a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1" href="#">
+                            Source <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 2: Server Infrastructure -->
+<article class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:glow-accent transition-shadow duration-300 md:col-span-2 xl:col-span-1">
+<div class="h-48 relative overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A meticulously organized server rack in a modern, dark data center. The servers emit a pulsating, cool cyan and deep blue glow, contrasting with the stark, monolithic black chassis. High-end, pristine cable management is visible. The scene suggests extreme reliability, massive data throughput, and cutting-edge cloud infrastructure. Cinematic lighting, highly technical atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxBjMh9yuwigX_rUvj6E816GPA3_bQLVHiZlphKs8NDkgzbBfhXbNA1WmC5VbBSu-MpiB4ftnfHROu7wVPAUCJ5_Qsmey4y7ivIvkFnKOT9_pHiyr1FN4hGm15REy2scdsKH_C-8J98i9KMluiLSLXe_L6mxPWdoM4QbYAfhL0rRyj1PPicZSOBnYsE2ET68VwBx4MmVQlz2HelPjdgyGC72ADor2M2i5h-j4Pd63gQWw786hclILy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1E293B] to-transparent"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex gap-2 mb-4">
+<span class="font-code-sm text-code-sm px-2 py-1 rounded tag-software border border-[#06B6D4]/30">DevOps</span>
+<span class="font-code-sm text-code-sm px-2 py-1 rounded tag-software border border-[#06B6D4]/30">Kubernetes</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Cloud-Native Edge Clusters</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Automated provisioning and orchestration of high-availability k8s clusters for edge computing workloads, leveraging GitOps methodologies.</p>
+<div class="mt-auto border-t border-white/10 pt-4 flex justify-between items-center font-code-sm text-code-sm text-on-surface-variant">
+<span>Deployments: 450+</span>
+<a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1" href="#">
+                            Architecture <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 3: Automation -->
+<article class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:glow-accent transition-shadow duration-300">
+<div class="p-6 flex flex-col flex-grow h-full">
+<div class="flex gap-2 mb-4">
+<span class="font-code-sm text-code-sm px-2 py-1 rounded tag-software border border-[#06B6D4]/30">Python</span>
+<span class="font-code-sm text-code-sm px-2 py-1 rounded tag-hardware border border-[#F97316]/30">SCADA</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Industrial Telemetry Pipeline</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Real-time data ingestion pipeline for legacy manufacturing equipment. Translates proprietary serial protocols into standardized JSON payloads for predictive maintenance analysis.</p>
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-white/5 mb-6 font-code-sm text-code-sm text-on-surface-variant">
+<span class="text-primary">def</span> <span class="text-[#e7c365]">parse_packet</span>(stream):<br/>
+                          header = stream.read(4)<br/>
+                          <span class="text-[#948e9c]"># Extract payload length</span>
+</div>
+<div class="mt-auto border-t border-white/10 pt-4 flex justify-between items-center font-code-sm text-code-sm text-on-surface-variant">
+<span>Status: Active</span>
+<a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1" href="#">
+                            Docs <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 4: Robotics -->
+<article class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:glow-accent transition-shadow duration-300 xl:col-span-2">
+<div class="h-64 relative overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, modern robotic arm assembly in a sterile, dark research laboratory. The mechanical joints are highlighted by subtle, glowing cyan LED indicators, suggesting precision operation and advanced kinematics. The background is a moody, deep slate gray, emphasizing the polished metal and carbon fiber textures of the robot. Technical, high-end engineering aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDawdMKyr1z-zEOEJnJxRhe5e-wE-rkj9HhrQLLLg8Wv_Ya1ACazeNzqaPi5WkiyQwmRaOMkHiHh8_Z9eaXwktdYubb3NIcPeebgO-L7_cRcKL0EXr3ZhTYDx9uknY5zdPP9DGYT1WHB6lHWpBFBj8TZnQh1iqQlLVwbcEgkHwa2e4HcIQn6ql2Ik2fwZ9rauRwZ_fsn6Z3NqE6EVNYbAKWyG8HBJaZkwjv7S4QLFIzNj_PTkceNFkf"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1E293B] via-transparent to-transparent"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex gap-2 mb-4">
+<span class="font-code-sm text-code-sm px-2 py-1 rounded tag-hardware border border-[#F97316]/30">Mechatronics</span>
+<span class="font-code-sm text-code-sm px-2 py-1 rounded tag-software border border-[#06B6D4]/30">ROS2</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Autonomous Material Handler</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-3xl">Design and implementation of a 6-DoF robotic manipulator for precise handling of volatile chemical compounds. Integrated computer vision for spatial orientation and ROS2 for inverse kinematics and path planning.</p>
+<div class="mt-auto border-t border-white/10 pt-4 flex gap-8 items-center font-code-sm text-code-sm text-on-surface-variant">
+<div>
+<span class="block text-on-surface font-bold">Payload</span>
+<span>2.5 kg Max</span>
+</div>
+<div>
+<span class="block text-on-surface font-bold">Precision</span>
+<span>±0.05 mm</span>
+</div>
+<a class="ml-auto text-primary hover:text-primary-fixed transition-colors flex items-center gap-1" href="#">
+                            View Case Study <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl w-full py-8 mt-auto border-t border-white/10 md:pl-64 z-40">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">© 2024 Terminal_Protocol. All rights reserved.</span>
+<div class="flex gap-6 font-code-sm text-code-sm text-on-surface-variant">
+<a class="hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Github</a>
+<a class="hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Documentation</a>
+</div>
+</div>
+</footer>
+</body></html>

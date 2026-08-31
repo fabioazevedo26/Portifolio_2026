@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0F172A;
+    --surface: #1E293B;
+    --surface-glass: rgba(30, 41, 59, 0.8);
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --accent-cyan: #06B6D4;
+    --accent-blue: #3B82F6;
+    --accent-orange: #FF8C00;
+    --accent-purple: #CFBCFF;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: var(--surface-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+
+  .glow-accent-orange {
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+  }
+
+  .text-gradient-cyan-orange {
+    background: linear-gradient(to right, var(--accent-cyan), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tag-hardware {
+    color: var(--accent-orange);
+    background-color: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+  }
+
+  .tag-software {
+    color: var(--accent-cyan);
+    background-color: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+
+  .timeline-line {
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-blue));
+  }
+
+  .timeline-node {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+  }
+
+  .bg-network-grid {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2h2v4h18v2H22v2.5h-2zm-2-7.5V10H0V8h18V5h2v5h-2zm12 5V13h8v-2h-8v-3h-2v7h2zm-4 10v-3h12v-2H26v-2h-2v7h2zm-14-3v-2H0v-2h12v-3h2v7h-2z' fill='%23cfbcff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

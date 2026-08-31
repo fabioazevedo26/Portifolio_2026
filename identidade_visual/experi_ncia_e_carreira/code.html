@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Experience - Computer Engineer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e6e0e9",
+                        "on-primary-container": "#e0d2ff",
+                        "surface-bright": "#3b383e",
+                        "surface-dim": "#141218",
+                        "inverse-primary": "#6750a4",
+                        "secondary-fixed": "#e9ddff",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-secondary-fixed": "#1f1635",
+                        "surface-container-lowest": "#0f0d13",
+                        "on-primary": "#381e72",
+                        "background": "#141218",
+                        "outline": "#948e9c",
+                        "on-tertiary-container": "#503d00",
+                        "primary": "#cfbcff",
+                        "on-tertiary": "#3e2e00",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#141218",
+                        "outline-variant": "#494551",
+                        "surface-container-highest": "#36343a",
+                        "secondary-container": "#4d4465",
+                        "surface-tint": "#cfbcff",
+                        "on-secondary": "#342b4b",
+                        "secondary": "#cdc0e9",
+                        "on-surface-variant": "#cbc4d2",
+                        "surface-container-high": "#2b292f",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "primary-fixed": "#e9ddff",
+                        "inverse-surface": "#e6e0e9",
+                        "surface-variant": "#36343a",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1d1b20",
+                        "inverse-on-surface": "#322f35",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "primary-fixed-dim": "#cfbcff",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "tertiary-container": "#c9a74d",
+                        "on-tertiary-fixed": "#241a00",
+                        "tertiary-fixed": "#ffdf93",
+                        "surface-container": "#211f24",
+                        "on-secondary-container": "#bfb2da",
+                        "on-surface": "#e6e0e9",
+                        "primary-container": "#6750a4",
+                        "tertiary": "#e7c365",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#22005d",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Geist"],
+                        "code-sm": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Geist"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "code-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F172A;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        /* Subtle glow effects for dark theme tech aesthetic */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, #06B6D4, #3B82F6);
+        }
+        
+        .timeline-node {
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(207,188,255,0.1)]">
+<div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto hidden md:flex">
+<div class="font-headline-sm text-headline-sm font-bold text-primary tracking-tighter">ENGINEER_PORTFOLIO</div>
+<div class="flex items-center gap-6">
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-2 py-1 rounded" href="#">Projects</a>
+<a class="font-body-md text-body-md font-medium text-primary border-b-2 border-primary pb-1 active:scale-95 transition-transform" href="#">Experience</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-2 py-1 rounded" href="#">Contact</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-2 py-1 rounded" href="#">Stack</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-2 py-1 rounded" href="#">Blog</a>
+</div>
+<button class="bg-[#06B6D4] text-[#0F172A] font-label-caps text-label-caps px-4 py-2 rounded-DEFAULT hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all">Resume</button>
+</div>
+<!-- Mobile Nav Placeholder (Simplistic for brevity as SideNav handles mobile complex usually, but per rules TopNav is fixed) -->
+<div class="flex justify-between items-center h-16 px-margin-mobile md:hidden">
+<div class="font-headline-sm text-headline-sm font-bold text-primary tracking-tighter">ENG_PORTFOLIO</div>
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+</nav>
+<!-- SideNavBar (Mobile Bottom / Desktop Side context - suppressed per TopNav presence as primary shell) -->
+<!-- Assuming TopNav is chosen as primary shell for this view to maximize canvas width for timeline -->
+<!-- Main Canvas -->
+<main class="flex-1 pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
+<header class="mb-16">
+<h1 class="font-display-lg text-display-lg text-primary mb-4">Career Trajectory</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                A systematic overview of my professional experience in IT Infrastructure, Systems Engineering, and IoT integration.
+            </p>
+</header>
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Timeline Section -->
+<section class="flex-1 relative">
+<!-- Vertical Timeline Line -->
+<div class="absolute left-4 top-4 bottom-4 timeline-line hidden md:block"></div>
+<!-- Experience Item 1 -->
+<div class="relative pl-0 md:pl-12 mb-12 group">
+<div class="absolute left-[-5px] top-6 w-3 h-3 rounded-full bg-[#06B6D4] timeline-node hidden md:block z-10"></div>
+<div class="glass-card rounded-xl p-6 md:p-8 hover:border-[#06B6D4]/50 transition-colors duration-300">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-white/5 pb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Senior Systems Engineer</h3>
+<div class="font-code-sm text-code-sm text-on-surface-variant mt-2">CloudTech Infrastructure</div>
+</div>
+<div class="font-label-caps text-label-caps text-[#06B6D4] bg-[#06B6D4]/10 px-3 py-1 rounded-full mt-4 md:mt-0">
+                                2021 - Present
+                            </div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Architected and deployed highly available cloud environments. Specialized in Kubernetes cluster management and automated CI/CD pipelines, reducing deployment times by 40%.
+                        </p>
+<div class="flex flex-wrap gap-2">
+<span class="font-code-sm text-code-sm bg-surface-container-high px-2 py-1 rounded-DEFAULT text-[#3B82F6]">Kubernetes</span>
+<span class="font-code-sm text-code-sm bg-surface-container-high px-2 py-1 rounded-DEFAULT text-[#06B6D4]">AWS EC2</span>
+<span class="font-code-sm text-code-sm bg-surface-container-high px-2 py-1 rounded-DEFAULT text-on-surface">Terraform</span>
+</div>
+</div>
+</div>
+<!-- Experience Item 2 -->
+<div class="relative pl-0 md:pl-12 mb-12 group">
+<div class="absolute left-[-5px] top-6 w-3 h-3 rounded-full bg-[#3B82F6] timeline-node hidden md:block z-10"></div>
+<div class="glass-card rounded-xl p-6 md:p-8 hover:border-[#3B82F6]/50 transition-colors duration-300">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-white/5 pb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">IoT Integrations Specialist</h3>
+<div class="font-code-sm text-code-sm text-on-surface-variant mt-2">SmartGrid Systems</div>
+</div>
+<div class="font-label-caps text-label-caps text-[#3B82F6] bg-[#3B82F6]/10 px-3 py-1 rounded-full mt-4 md:mt-0">
+                                2018 - 2021
+                            </div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Developed firmware for edge computing devices using ESP32 platforms. Implemented secure MQTT communication protocols for real-time sensor data aggregation across industrial networks.
+                        </p>
+<div class="flex flex-wrap gap-2">
+<span class="font-code-sm text-code-sm bg-surface-container-high px-2 py-1 rounded-DEFAULT text-on-surface">ESP32</span>
+<span class="font-code-sm text-code-sm bg-surface-container-high px-2 py-1 rounded-DEFAULT text-[#06B6D4]">C++</span>
+<span class="font-code-sm text-code-sm bg-surface-container-high px-2 py-1 rounded-DEFAULT text-[#3B82F6]">MQTT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack Sidebar -->
+<aside class="w-full lg:w-80">
+<div class="glass-card rounded-xl p-6 sticky top-24">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[#06B6D4]" data-icon="memory">memory</span>
+                        Tech Stack
+                    </h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low border border-white/5 p-4 rounded-lg flex flex-col items-center justify-center text-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-3xl mb-2 text-[#F5A623]" data-icon="terminal">terminal</span>
+<span class="font-label-caps text-label-caps text-on-surface">Linux</span>
+</div>
+<div class="bg-surface-container-low border border-white/5 p-4 rounded-lg flex flex-col items-center justify-center text-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-3xl mb-2 text-[#FF9900]" data-icon="cloud">cloud</span>
+<span class="font-label-caps text-label-caps text-on-surface">AWS</span>
+</div>
+<div class="bg-surface-container-low border border-white/5 p-4 rounded-lg flex flex-col items-center justify-center text-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-3xl mb-2 text-[#2496ED]" data-icon="deployed_code">deployed_code</span>
+<span class="font-label-caps text-label-caps text-on-surface">Docker</span>
+</div>
+<div class="bg-surface-container-low border border-white/5 p-4 rounded-lg flex flex-col items-center justify-center text-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-3xl mb-2 text-[#E34F26]" data-icon="developer_board">developer_board</span>
+<span class="font-label-caps text-label-caps text-on-surface">ESP32</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 mt-auto bg-surface-container-lowest/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl border-t border-white/10 flat">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-4">
+<div class="font-label-caps text-label-caps text-on-surface-variant">© 2024 Terminal_Protocol. All rights reserved.</div>
+<div class="flex gap-6">
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Github</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Documentation</a>
+</div>
+</div>
+</footer>
+</body></html>
