@@ -3,8 +3,8 @@ import HoverTooltip from './HoverTooltip.tsx';
 const experiences = [
   {
     role: 'Estagiário de Suporte de TI',
-    company: 'Empresa de Tecnologia',
-    period: '2023 - Presente',
+    company: 'CBA - Centro de Bionegócios da Amazônia',
+    period: 'Agosto 2025 - Presente',
     technologies: [
       { name: 'Windows Server 2022', tooltip: 'Active Directory: Criação e gestão de usuários do domínio', key: 'AD' },
       { name: 'Roteadores UniFi', tooltip: 'Instalação e configuração de roteadores UniFi para redes corporativas' },
