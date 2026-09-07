@@ -93,3 +93,4 @@ O build de produção é gerado na pasta `dist/` após executar `npm run build`.
 ---
 
 *Desenvolvido por Fábio Azevedo — Estudante de Engenharia da Computação (Uninorte, 8º período)*# Portifolio_2026
+# Portifolio_2026
