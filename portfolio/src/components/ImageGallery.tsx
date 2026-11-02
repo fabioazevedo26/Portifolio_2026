@@ -10,24 +10,28 @@ interface ImageGalleryProps {
   images: GalleryImage[];
 }
 
+// Miniaturas de 480px geradas ao lado de cada imagem (nome-thumb.webp)
+const thumbnail = (src: string) => src.replace(/\.webp$/, '-thumb.webp');
+
 export default function ImageGallery({ images }: ImageGalleryProps) {
   const [current, setCurrent] = useState(0);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const image = images[current];
 
-  const go = (step: number) => setCurrent((i) => (i + step + images.length) % images.length);
+  const total = images.length;
+  const go = (step: number) => setCurrent((i) => (i + step + total) % total);
 
   // Setas do teclado navegam enquanto a imagem ampliada está aberta (Esc fecha pelo próprio <dialog>)
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') go(1);
-      if (e.key === 'ArrowLeft') go(-1);
+      if (e.key === 'ArrowRight') setCurrent((i) => (i + 1) % total);
+      if (e.key === 'ArrowLeft') setCurrent((i) => (i - 1 + total) % total);
     };
     dialog.addEventListener('keydown', handleKeyDown);
     return () => dialog.removeEventListener('keydown', handleKeyDown);
-  });
+  }, [total]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -56,7 +60,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             aria-current={i === current}
             className={`overflow-hidden rounded border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${i === current ? 'border-primary' : 'border-white/10 opacity-60 hover:opacity-100'}`}
           >
-            <img src={img.src} alt="" loading="lazy" decoding="async" className="w-full aspect-[16/10] object-cover object-top" />
+            <img src={thumbnail(img.src)} alt="" width={480} height={300} loading="lazy" decoding="async" className="w-full aspect-[16/10] object-cover object-top" />
           </button>
         ))}
       </div>
