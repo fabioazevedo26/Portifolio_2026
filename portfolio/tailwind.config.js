@@ -1,3 +1,6 @@
+// Variáveis definidas em src/index.css como canais RGB ("6 182 212")
+const withAlpha = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,20 +11,35 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "var(--accent-cyan)",
-        secondary: "var(--accent-purple)",
+        primary: withAlpha("accent-cyan"),
+        "primary-fixed": withAlpha("primary-fixed"),
+        secondary: withAlpha("accent-purple"),
+        tertiary: withAlpha("tertiary"),
         accent: {
-          cyan: "var(--accent-cyan)",
-          blue: "var(--accent-blue)",
-          orange: "var(--accent-orange)",
-          purple: "var(--accent-purple)",
+          cyan: withAlpha("accent-cyan"),
+          blue: withAlpha("accent-blue"),
+          orange: withAlpha("accent-orange"),
+          purple: withAlpha("accent-purple"),
         },
-        background: "var(--bg-primary)",
-        surface: "var(--surface)",
+        // Atalhos usados nos componentes (text-cyan, bg-orange/10, ...); mantêm as escalas padrão (cyan-500, ...)
+        cyan: { DEFAULT: withAlpha("accent-cyan") },
+        blue: { DEFAULT: withAlpha("accent-blue") },
+        orange: { DEFAULT: withAlpha("accent-orange") },
+        background: withAlpha("bg-primary"),
+        surface: {
+          DEFAULT: withAlpha("surface"),
+          dim: withAlpha("surface-dim"),
+          "container-lowest": withAlpha("surface-container-lowest"),
+          "container-high": withAlpha("surface-container-high"),
+          "container-highest": withAlpha("surface-container-highest"),
+        },
+        "on-background": withAlpha("text-primary"),
+        "on-surface": withAlpha("on-surface"),
+        "on-surface-variant": withAlpha("text-secondary"),
         "surface-glass": "var(--surface-glass)",
         "border-glass": "var(--border-glass)",
-        "text-primary": "var(--text-primary)",
-        "text-secondary": "var(--text-secondary)",
+        "text-primary": withAlpha("text-primary"),
+        "text-secondary": withAlpha("text-secondary"),
       },
       borderRadius: {
         "DEFAULT": "0.125rem",
@@ -43,6 +61,23 @@ export default {
         display: ['Geist', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
         code: ['JetBrains Mono', 'monospace'],
+        // Mesmos nomes da escala tipográfica (fontSize), para usar font-X junto com text-X
+        'display-lg': ['Geist', 'sans-serif'],
+        'headline-md': ['Geist', 'sans-serif'],
+        'headline-sm': ['Geist', 'sans-serif'],
+        'body-lg': ['Inter', 'sans-serif'],
+        'body-md': ['Inter', 'sans-serif'],
+        'code-sm': ['JetBrains Mono', 'monospace'],
+        'label-caps': ['JetBrains Mono', 'monospace'],
+      },
+      keyframes: {
+        'fade-in-up': {
+          from: { opacity: '0', transform: 'translate(-50%, 8px)' },
+          to: { opacity: '1', transform: 'translate(-50%, 0)' },
+        },
+      },
+      animation: {
+        'fade-in-up': 'fade-in-up 0.2s ease-out forwards',
       },
       fontSize: {
         'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.02em', fontWeight: '700' }],

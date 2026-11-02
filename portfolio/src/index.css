@@ -4,21 +4,29 @@
 
 @layer base {
   :root {
-    --bg-primary: #0F172A;
-    --surface: #1E293B;
+    /* Cores em canais RGB para suportar modificadores de opacidade do Tailwind (ex: bg-surface/80) */
+    --bg-primary: 15 23 42;
+    --surface: 30 41 59;
+    --surface-dim: 15 23 42;
+    --surface-container-lowest: 11 17 32;
+    --surface-container-high: 39 52 73;
+    --surface-container-highest: 51 65 85;
     --surface-glass: rgba(30, 41, 59, 0.8);
     --border-glass: rgba(255, 255, 255, 0.1);
-    --text-primary: #F8FAFC;
-    --text-secondary: #94A3B8;
-    --accent-cyan: #06B6D4;
-    --accent-blue: #3B82F6;
-    --accent-orange: #FF8C00;
-    --accent-purple: #CFBCFF;
+    --text-primary: 248 250 252;
+    --text-secondary: 148 163 184;
+    --on-surface: 226 232 240;
+    --tertiary: 231 195 101;
+    --primary-fixed: 103 232 249;
+    --accent-cyan: 6 182 212;
+    --accent-blue: 59 130 246;
+    --accent-orange: 255 140 0;
+    --accent-purple: 207 188 255;
   }
 
   body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: rgb(var(--bg-primary));
+    color: rgb(var(--text-primary));
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -27,6 +35,26 @@
 
   * {
     box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Compensa o header fixo ao navegar por âncoras (#projects, ...) */
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -47,27 +75,27 @@
   }
 
   .text-gradient-cyan-orange {
-    background: linear-gradient(to right, var(--accent-cyan), var(--accent-orange));
+    background: linear-gradient(to right, rgb(var(--accent-cyan)), rgb(var(--accent-orange)));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .tag-hardware {
-    color: var(--accent-orange);
+    color: rgb(var(--accent-orange));
     background-color: rgba(249, 115, 22, 0.1);
     border: 1px solid rgba(249, 115, 22, 0.3);
   }
 
   .tag-software {
-    color: var(--accent-cyan);
+    color: rgb(var(--accent-cyan));
     background-color: rgba(6, 182, 212, 0.1);
     border: 1px solid rgba(6, 182, 212, 0.3);
   }
 
   .timeline-line {
     width: 2px;
-    background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-blue));
+    background: linear-gradient(to bottom, rgb(var(--accent-cyan)), rgb(var(--accent-blue)));
   }
 
   .timeline-node {
