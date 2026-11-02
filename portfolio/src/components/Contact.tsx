@@ -26,7 +26,7 @@ export default function Contact() {
             <p className="font-code-sm text-code-sm text-tertiary mb-3">Disponível para oportunidades</p>
             <h2 className="font-headline-md text-headline-sm sm:text-headline-md text-on-background mb-4">Vamos conversar?</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-              Busco uma oportunidade como Analista de TI Júnior ou Engenheiro de Computação Júnior. Se o meu perfil combina com a sua equipe, me mande um email ou uma mensagem no LinkedIn.
+              Busco uma oportunidade como Analista de TI Júnior ou Engenheiro de Computação Júnior. Se o meu perfil combina com a sua equipe, me mande um email ou uma mensagem no WhatsApp ou no LinkedIn.
             </p>
           </div>
 
@@ -51,6 +51,18 @@ export default function Contact() {
             <p className="font-code-sm text-code-sm text-on-surface-variant text-center break-all" aria-live="polite">
               {copied ? 'Email copiado!' : email}
             </p>
+
+            <a
+              href={links.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`WhatsApp ${links.whatsappDisplay}`}
+              className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-5 py-3 font-body-md text-body-md font-medium text-on-background transition-colors hover:bg-[#25D366]/20"
+            >
+              <span className="material-symbols-outlined text-[20px] text-[#25D366]" aria-hidden="true">chat</span>
+              WhatsApp
+              <span className="font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">{links.whatsappDisplay}</span>
+            </a>
 
             <a
               href={links.linkedin}
