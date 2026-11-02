@@ -18,7 +18,7 @@ export default function Hero() {
           </h1>
           
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-            Atualmente no 8º período na Uninorte em Manaus (turno da noite). Busco oportunidades para integrar meus conhecimentos de suporte técnico com desenvolvimento de software e hardware, criando soluções robustas na interseção entre sistemas embarcados, cloud infrastructure e automação industrial.
+            Estou no 8º período na Uninorte, em Manaus (turno da noite). No estágio no CBA, cuido da infraestrutura de TI (Windows Server, Proxmox e redes UniFi) e desenvolvo sistemas web internos com Node.js e Docker. Na faculdade, trabalho com IoT e sistemas embarcados com ESP32. Busco oportunidades que unam infraestrutura, software e hardware.
           </p>
           
           <div className="flex flex-wrap gap-4 mt-4">

@@ -5,6 +5,7 @@ const arsens: CaseStudyData = {
   title: 'ARSENS · Monitoramento Ambiental IoT',
   subtitle: 'TCC em equipe · em desenvolvimento',
   icon: 'sensors',
+  role: 'Participei das três frentes do projeto: hardware (ESP32 e sensores), software e testes em campo na parada de ônibus.',
   context: 'Estação de monitoramento instalada na parada de ônibus da Av. Djalma Batista, em frente ao Millennium Shopping e ao lado da Uninorte, um dos trechos de maior movimento de Manaus. Ela mede monóxido de carbono, temperatura e umidade e traduz os dados em informação clara para quem espera o ônibus.',
   features: [
     'Painel Cidadão com a qualidade do ar em linguagem simples e escala educativa baseada nos limites da EPA',
@@ -141,7 +142,7 @@ export default function ProjectsAndAchievements() {
         <CaseStudy study={arsens} />
       </div>
 
-      <div className="mb-16">
+      <div id="sistemas-cba" className="mb-16">
         <h3 className="font-headline-sm text-headline-sm text-on-background mb-2 flex items-center gap-2">
           <span className="material-symbols-outlined text-cyan" aria-hidden="true">dns</span>
           Sistemas internos · CBA

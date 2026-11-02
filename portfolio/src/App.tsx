@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Hero from './components/Hero.tsx';
 import Experience from './components/Experience.tsx';
 import ProjectsAndAchievements from './components/ProjectsAndAchievements.tsx';
+import Contact from './components/Contact.tsx';
 import { links } from './data/links.ts';
 
 const navItems = [
@@ -68,7 +69,7 @@ function Header() {
 function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer id="contact" className="bg-surface-container-lowest/80 backdrop-blur-xl border-t border-white/10 w-full py-8 mt-auto">
+    <footer className="bg-surface-container-lowest/80 backdrop-blur-xl border-t border-white/10 w-full py-8 mt-auto">
       <div className="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-4">
         <div className="flex flex-col md:flex-row items-center gap-4">
           <span className="font-label-caps text-label-caps text-on-surface-variant">Fábio Azevedo</span>
@@ -93,6 +94,7 @@ function App() {
         <Hero />
         <Experience />
         <ProjectsAndAchievements />
+        <Contact />
       </main>
       <Footer />
     </div>

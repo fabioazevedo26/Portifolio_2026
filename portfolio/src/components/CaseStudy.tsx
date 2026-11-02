@@ -6,6 +6,7 @@ export interface CaseStudyData {
   subtitle: string;
   icon: string;
   context: string;
+  role?: string;
   features: string[];
   highlights: string[];
   tech: { name: string; info: string }[];
@@ -40,6 +41,16 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
         </div>
 
         <p className="font-body-md text-body-md text-on-surface-variant mb-6">{study.context}</p>
+
+        {study.role && (
+          <div className="mb-6 flex gap-3 rounded-lg border-l-2 border-tertiary bg-tertiary/5 px-4 py-3">
+            <span className="material-symbols-outlined text-[20px] text-tertiary mt-0.5" aria-hidden="true">person</span>
+            <p className="font-body-md text-body-md text-on-surface-variant">
+              <span className="font-medium text-on-surface">Minha participação: </span>
+              {study.role}
+            </p>
+          </div>
+        )}
 
         <h5 className="font-label-caps text-label-caps text-on-surface mb-3">Funcionalidades</h5>
         <ul className="mb-6 space-y-2">

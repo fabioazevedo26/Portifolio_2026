@@ -14,6 +14,11 @@ const experiences = [
       { name: 'Help Desk', tooltip: 'Configuração de pastas de rede, impressoras e gestão de reuniões no Google Meet' },
     ],
     description: 'Atuação em suporte de infraestrutura TI com foco em administração de ambientes Windows/Linux, virtualização, redes UniFi e atendimento help desk.',
+    // Sistemas desenvolvidos no estágio (detalhados em Projetos > Sistemas internos)
+    built: [
+      { name: 'EstacionamentoCBA', summary: 'controle de acesso de veículos e pedestres da portaria' },
+      { name: 'TermoCBA', summary: 'termos de responsabilidade de equipamentos de TI em PDF' },
+    ],
   },
 ];
 
@@ -43,6 +48,26 @@ export default function Experience() {
             <p className="font-body-md text-body-md text-on-surface-variant mb-6">
               {exp.description}
             </p>
+
+            {exp.built.length > 0 && (
+              <div className="mb-6 rounded-lg border border-cyan/20 bg-cyan/5 p-4">
+                <p className="font-label-caps text-label-caps text-on-surface mb-3 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[18px] text-cyan" aria-hidden="true">code</span>
+                  Sistemas que desenvolvi no estágio
+                </p>
+                <ul className="space-y-1 mb-3">
+                  {exp.built.map((system) => (
+                    <li key={system.name} className="font-body-md text-body-md text-on-surface-variant">
+                      <span className="font-medium text-on-surface">{system.name}</span>: {system.summary}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#sistemas-cba" className="inline-flex items-center gap-1 font-code-sm text-code-sm text-primary hover:text-primary-fixed transition-colors">
+                  Ver estudos de caso
+                  <span className="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+                </a>
+              </div>
+            )}
             
             <div className="flex flex-wrap gap-2">
               {exp.technologies.map((tech) => (
