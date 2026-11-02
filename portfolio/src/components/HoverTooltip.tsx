@@ -1,27 +1,4 @@
-import { useState, useRef, useEffect, useCallback, ReactNode } from 'react';
-
-const tooltipStyles = `
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 8px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-.animate-fade-in-up {
-  animation: fade-in-up 0.2s ease-out forwards;
-}
-`;
-
-if (typeof document !== 'undefined' && !document.getElementById('tooltip-styles')) {
-  const styleSheet = document.createElement('style');
-  styleSheet.id = 'tooltip-styles';
-  styleSheet.textContent = tooltipStyles;
-  document.head.appendChild(styleSheet);
-}
+import { useState, useRef, useEffect, useId, ReactNode, PointerEvent } from 'react';
 
 interface HoverTooltipProps {
   children: ReactNode;
@@ -30,68 +7,72 @@ interface HoverTooltipProps {
 
 export default function HoverTooltip({ children, info }: HoverTooltipProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLSpanElement>(null);
+  const pointerTypeRef = useRef('');
+  const tooltipId = useId();
 
+  // Hover só para mouse; toque é tratado no clique (funciona em notebooks com tela touch)
+  const handlePointerEnter = (e: PointerEvent) => {
+    if (e.pointerType === 'mouse') setIsVisible(true);
+  };
+
+  const handlePointerLeave = (e: PointerEvent) => {
+    if (e.pointerType === 'mouse') setIsVisible(false);
+  };
+
+  // Fecha ao tocar fora ou ao pressionar Esc
   useEffect(() => {
-    const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (!isVisible) return;
+
+    const handlePointerDownOutside = (e: globalThis.PointerEvent) => {
+      if (triggerRef.current && !triggerRef.current.contains(e.target as Node)) {
+        setIsVisible(false);
+      }
     };
-    checkTouchDevice();
-    window.addEventListener('resize', checkTouchDevice);
-    return () => window.removeEventListener('resize', checkTouchDevice);
-  }, []);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsVisible(false);
+    };
 
-  const handleMouseEnter = () => {
-    if (!isTouchDevice) setIsVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    if (!isTouchDevice) setIsVisible(false);
-  };
-
-  const handleTouchStart = () => {
-    if (isTouchDevice) {
-      setIsVisible(true);
-    }
-  };
-
-  const handleClickOutside = useCallback((e: TouchEvent) => {
-    if (isTouchDevice && isVisible && tooltipRef.current && !tooltipRef.current.contains(e.target as Node) && triggerRef.current && !triggerRef.current.contains(e.target as Node)) {
-      setIsVisible(false);
-    }
-  }, [isTouchDevice, isVisible]);
-
-  useEffect(() => {
-    if (isTouchDevice && isVisible) {
-      document.addEventListener('touchstart', handleClickOutside, { passive: false });
-    }
-    return () => document.removeEventListener('touchstart', handleClickOutside);
-  }, [isTouchDevice, isVisible, handleClickOutside]);
+    document.addEventListener('pointerdown', handlePointerDownOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDownOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isVisible]);
 
   return (
-    <div
+    <span
       ref={triggerRef}
-      className="relative inline-block cursor-help"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handleTouchStart}
+      tabIndex={0}
+      aria-describedby={isVisible ? tooltipId : undefined}
+      className="relative inline-block cursor-help rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
+      onPointerDown={(e) => { pointerTypeRef.current = e.pointerType; }}
+      onClick={() => {
+        if (pointerTypeRef.current !== 'mouse') setIsVisible((visible) => !visible);
+      }}
+      // Só abre no foco via teclado (Tab); no toque o clique já cuida disso
+      onFocus={(e) => {
+        if (e.currentTarget.matches(':focus-visible')) setIsVisible(true);
+      }}
+      onBlur={() => setIsVisible(false)}
     >
       <span className="border-b border-dotted border-primary/50 hover:border-solid hover:border-primary transition-colors">
         {children}
       </span>
 
       {isVisible && (
-        <div
-          ref={tooltipRef}
-          className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-2.5 glass-panel rounded-lg text-white text-code-sm whitespace-nowrap shadow-lg animate-fade-in-up"
+        <span
+          id={tooltipId}
           role="tooltip"
+          className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-3 w-max max-w-[16rem] px-4 py-2.5 bg-surface-container-high border border-white/10 rounded-lg text-white text-code-sm text-center whitespace-normal shadow-lg animate-fade-in-up"
         >
           {info}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-4 border-transparent border-t-white/10" />
-        </div>
+          <span className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-4 border-transparent border-t-surface-container-high" />
+        </span>
       )}
-    </div>
+    </span>
   );
 }

@@ -6,7 +6,8 @@ const experiences = [
     company: 'CBA - Centro de Bionegócios da Amazônia',
     period: 'Agosto 2025 - Presente',
     technologies: [
-      { name: 'Windows Server 2022', tooltip: 'Active Directory: Criação e gestão de usuários do domínio', key: 'AD' },
+      { name: 'Windows Server 2022', tooltip: 'Administração de servidores Windows em ambiente corporativo' },
+      { name: 'AD', tooltip: 'Active Directory: Criação e gestão de usuários do domínio' },
       { name: 'Roteadores UniFi', tooltip: 'Instalação e configuração de roteadores UniFi para redes corporativas' },
       { name: 'Proxmox', tooltip: 'Virtualização com Proxmox VE para consolidação de servidores' },
       { name: 'Ubuntu Server', tooltip: 'Administração de servidores Linux Ubuntu Server' },
@@ -27,11 +28,11 @@ export default function Experience() {
       </header>
 
       <div className="space-y-8">
-        {experiences.map((exp, index) => (
-          <article key={index} className="glass-panel rounded-xl p-6 md:p-8 hover:border-cyan/50 transition-colors duration-300">
+        {experiences.map((exp) => (
+          <article key={`${exp.company}-${exp.period}`} className="glass-panel rounded-xl p-6 md:p-8 hover:border-cyan/50 transition-colors duration-300">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-white/5 pb-4">
               <div>
-                <h3 className="font-headline-md text-headline-md text-primary">{exp.role}</h3>
+                <h3 className="font-headline-md text-headline-sm sm:text-headline-md text-primary">{exp.role}</h3>
                 <div className="font-code-sm text-code-sm text-on-surface-variant mt-2">{exp.company}</div>
               </div>
               <div className="font-label-caps text-label-caps text-cyan bg-cyan/10 px-3 py-1 rounded-full mt-4 md:mt-0">
@@ -44,10 +45,10 @@ export default function Experience() {
             </p>
             
             <div className="flex flex-wrap gap-2">
-              {exp.technologies.map((tech, techIndex) => (
-                <HoverTooltip key={techIndex} info={tech.tooltip}>
-                  <span className="font-code-sm text-code-sm bg-surface-container-high px-2 py-1 rounded-DEFAULT text-cyan border border-cyan/30 cursor-help">
-                    {tech.name.includes('Windows Server') ? 'AD' : tech.name}
+              {exp.technologies.map((tech) => (
+                <HoverTooltip key={tech.name} info={tech.tooltip}>
+                  <span className="font-code-sm text-code-sm bg-surface-container-high px-2 py-1 rounded text-cyan border border-cyan/30 cursor-help">
+                    {tech.name}
                   </span>
                 </HoverTooltip>
               ))}
