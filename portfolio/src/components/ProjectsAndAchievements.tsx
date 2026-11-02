@@ -110,7 +110,8 @@ const caseStudies: CaseStudyData[] = [
 const achievements = [
   {
     title: '2º Lugar - Competição Robô Sumô',
-    description: 'Vice-campeão na competição de Robô Sumô da universidade. Desenvolvimento de robô autônomo com sensores de proximidade e estratégia de busca e ataque.',
+    event: 'Robô Sumô · 2026',
+    description: 'Vice-campeão na competição Robô Sumô 2026 da universidade. Desenvolvimento de robô autônomo com sensores de proximidade e estratégia de busca e ataque.',
     icon: 'emoji_events',
     image: { src: '/robo_sumo.webp', width: 962, height: 972 },
     tech: [
@@ -187,6 +188,7 @@ export default function ProjectsAndAchievements() {
                   </div>
                   <div>
                     <h4 className="font-headline-sm text-headline-sm text-on-background">{achievement.title}</h4>
+                    <p className="font-code-sm text-code-sm text-tertiary mt-1">{achievement.event}</p>
                   </div>
                 </div>
 
