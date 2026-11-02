@@ -2,26 +2,29 @@
 
 Portfólio pessoal desenvolvido com React, Vite e Tailwind CSS. Apresenta experiência profissional, projetos acadêmicos (TCC IoT) e conquistas técnicas (Robô Sumô).
 
+🔗 **Site:** [2026portfolio-indol.vercel.app](https://2026portfolio-indol.vercel.app/)
+
 ## 📸 Preview
 
-![Portfolio Preview](./portfolio/dist/robo_sumo.jpeg)
+![Portfolio Preview](./identidade_visual/home_portfolio_engenharia/screen.png)
 
 ## 🚀 Tecnologias
 
 | Categoria | Ferramentas |
 |-----------|-------------|
-| **Core** | React 19, Vite 8 |
+| **Core** | React 19, TypeScript, Vite 8 |
 | **Styling** | Tailwind CSS 3.4, CSS Variables (Design System customizado) |
-| **Tooling** | oxlint, PostCSS, Autoprefixer |
+| **Tooling** | oxlint, tsc, PostCSS, Autoprefixer |
 | **Fonts** | Geist, Inter, JetBrains Mono, Material Symbols |
 
 ## ✨ Funcionalidades
 
 - **Hero Section** — Apresentação com demonstração visual animada de sensor IoT (ESP32 + MQTT)
 - **Experiência Profissional** — Cards com tecnologias e tooltips interativos (hover + touch)
-- **Projetos** — TCC IoT (ESP32, MQ-7, BME280, Telegram) + WordPress/UniFi Captive Portal
+- **Projetos** — TCC [ARSENS](https://projeto-arsens-kappa.vercel.app/) (ESP32, MQ-7, BME280, Next.js, Telegram) + WordPress/UniFi Captive Portal
 - **Conquistas** — 2º lugar em Robô Sumô (Arduino, sensores IR, estratégia autônoma)
-- **HoverTooltip** — Componente reutilizável acessível (desktop hover + mobile touch)
+- **HoverTooltip** — Componente reutilizável acessível (hover, toque e teclado)
+- **Currículo** — PDF disponível para abrir/baixar direto do site
 - **Design System** — Dark mode nativo, glassmorphism, grid de rede sutil, tipografia hierárquica
 
 ## 📁 Estrutura
@@ -29,20 +32,24 @@ Portfólio pessoal desenvolvido com React, Vite e Tailwind CSS. Apresenta experi
 ```
 portfolio/
 ├── src/
-│   ├── App.jsx                    # Layout principal
-│   ├── main.jsx                   # Entry point
+│   ├── App.tsx                    # Layout principal (header, menu mobile, footer)
+│   ├── main.tsx                   # Entry point
 │   ├── index.css                  # Design system (CSS vars, utilities, components)
+│   ├── data/
+│   │   └── links.ts               # Links de contato e currículo
 │   └── components/
-│       ├── Hero.jsx               # Seção inicial + demo IoT
-│       ├── Experience.jsx         # Cards de experiência
-│       ├── ProjectsAndAchievements.jsx  # Projetos + conquistas
-│       └── HoverTooltip.jsx       # Tooltip acessível
-├── public/                        # Assets estáticos (logo, favicon, robo_sumo.jpeg)
-├── dist/                          # Build de produção (gerado pelo npm run build)
+│       ├── Hero.tsx               # Seção inicial + demo IoT
+│       ├── Experience.tsx         # Cards de experiência
+│       ├── ProjectsAndAchievements.tsx  # Projetos + conquistas
+│       └── HoverTooltip.tsx       # Tooltip acessível
+├── public/                        # Assets estáticos (logo, favicon, fotos, currículo PDF)
 ├── package.json
-├── tailwind.config.js
+├── tailwind.config.js             # Tokens de cor, tipografia e animações
 ├── vite.config.js
 └── postcss.config.js
+
+identidade_visual/                 # Protótipos e logo original
+docs/prompts.md                    # Prompts usados na construção do site
 ```
 
 ## ⚙️ Como rodar localmente
@@ -73,16 +80,12 @@ O projeto estará disponível em `http://localhost:5173`
 | `npm run dev` | Inicia servidor de desenvolvimento (Vite) |
 | `npm run build` | Gera build de produção em `dist/` |
 | `npm run lint` | Executa oxlint para análise de código |
+| `npm run typecheck` | Verifica os tipos com TypeScript |
 | `npm run preview` | Visualiza build de produção localmente |
 
 ## 🌐 Deploy
 
-O build de produção é gerado na pasta `dist/` após executar `npm run build`. Pode ser hospedado em:
-
-- Vercel
-- Netlify
-- GitHub Pages
-- Qualquer servidor estático (Nginx, Apache, etc.)
+O site está publicado na [Vercel](https://2026portfolio-indol.vercel.app/). O build de produção é gerado na pasta `portfolio/dist/` com `npm run build` e pode ser hospedado em qualquer servidor estático.
 
 ## 📫 Contato
 
@@ -92,5 +95,4 @@ O build de produção é gerado na pasta `dist/` após executar `npm run build`.
 
 ---
 
-*Desenvolvido por Fábio Azevedo — Estudante de Engenharia da Computação (Uninorte, 8º período)*# Portifolio_2026
-# Portifolio_2026
+*Desenvolvido por Fábio Azevedo — Estudante de Engenharia da Computação (Uninorte, 8º período)*
