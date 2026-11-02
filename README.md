@@ -6,7 +6,7 @@ Portfólio pessoal desenvolvido com React, Vite e Tailwind CSS. Apresenta experi
 
 ## 📸 Preview
 
-![Portfolio Preview](./identidade_visual/home_portfolio_engenharia/screen.png)
+![Portfolio Preview](./docs/preview.webp)
 
 ## 🚀 Tecnologias
 
@@ -15,7 +15,7 @@ Portfólio pessoal desenvolvido com React, Vite e Tailwind CSS. Apresenta experi
 | **Core** | React 19, TypeScript, Vite 8 |
 | **Styling** | Tailwind CSS 3.4, CSS Variables (Design System customizado) |
 | **Tooling** | oxlint, tsc, PostCSS, Autoprefixer |
-| **Fonts** | Geist, Inter, JetBrains Mono, Material Symbols |
+| **Fonts** | Geist, Inter, JetBrains Mono (Fontsource, servidas pelo site), Material Symbols |
 
 ## ✨ Funcionalidades
 
@@ -24,6 +24,8 @@ Portfólio pessoal desenvolvido com React, Vite e Tailwind CSS. Apresenta experi
 - **Projetos** — TCC [ARSENS](https://projeto-arsens-kappa.vercel.app/) (ESP32, MQ-7, BME280, Next.js, Telegram) + WordPress/UniFi Captive Portal
 - **Conquistas** — 2º lugar em Robô Sumô (Arduino, sensores IR, estratégia autônoma)
 - **HoverTooltip** — Componente reutilizável acessível (hover, toque e teclado)
+- **Sistemas internos do CBA** — Estudos de caso do EstacionamentoCBA e do TermoCBA com galeria de telas
+- **Contato** — Chamada para email (com botão de copiar), LinkedIn, GitHub e currículo
 - **Currículo** — PDF disponível para abrir/baixar direto do site
 - **Design System** — Dark mode nativo, glassmorphism, grid de rede sutil, tipografia hierárquica
 
@@ -41,6 +43,9 @@ portfolio/
 │       ├── Hero.tsx               # Seção inicial + demo IoT
 │       ├── Experience.tsx         # Cards de experiência
 │       ├── ProjectsAndAchievements.tsx  # Projetos + conquistas
+│       ├── CaseStudy.tsx          # Card de estudo de caso
+│       ├── ImageGallery.tsx       # Galeria com imagem ampliada
+│       ├── Contact.tsx            # Seção de contato
 │       └── HoverTooltip.tsx       # Tooltip acessível
 ├── public/                        # Assets estáticos (logo, favicon, fotos, currículo PDF)
 ├── package.json
@@ -78,14 +83,14 @@ O projeto estará disponível em `http://localhost:5173`
 | Comando | Descrição |
 |---------|-----------|
 | `npm run dev` | Inicia servidor de desenvolvimento (Vite) |
-| `npm run build` | Gera build de produção em `dist/` |
+| `npm run build` | Verifica os tipos e gera o build de produção em `dist/` |
 | `npm run lint` | Executa oxlint para análise de código |
 | `npm run typecheck` | Verifica os tipos com TypeScript |
 | `npm run preview` | Visualiza build de produção localmente |
 
 ## 🌐 Deploy
 
-O site está publicado na [Vercel](https://2026portfolio-indol.vercel.app/). O build de produção é gerado na pasta `portfolio/dist/` com `npm run build` e pode ser hospedado em qualquer servidor estático.
+O site está publicado na [Vercel](https://2026portfolio-indol.vercel.app/), com deploy automático a cada push na `main`. Uma GitHub Action (`.github/workflows/ci.yml`) roda lint, typecheck e build em cada push e pull request. O build de produção é gerado na pasta `portfolio/dist/` com `npm run build` e pode ser hospedado em qualquer servidor estático.
 
 ## 📫 Contato
 
