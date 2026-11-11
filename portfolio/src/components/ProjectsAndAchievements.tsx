@@ -9,7 +9,8 @@ const arsens: CaseStudyData = {
   context: 'Estação de monitoramento instalada na parada de ônibus da Av. Djalma Batista, em frente ao Millennium Shopping e ao lado da Uninorte, um dos trechos de maior movimento de Manaus. Ela mede monóxido de carbono, temperatura e umidade e traduz os dados em informação clara para quem espera o ônibus.',
   features: [
     'Painel Cidadão com a qualidade do ar em linguagem simples e escala educativa baseada nos limites da EPA',
-    'Painel Técnico com séries das últimas 24 h, diagnóstico do sensor e histórico de leituras',
+    'Painel Técnico com séries de 24 h, semana, mês ou intervalo, diagnóstico do sensor e histórico de leituras',
+    'PWA: pode ser instalado no celular como um app, com ícone na tela inicial, tela cheia e aviso quando está sem internet',
     'Exportação do histórico em CSV e Excel para pesquisa acadêmica',
     'Alertas no Telegram quando um limite crítico de segurança é ultrapassado',
   ],
@@ -17,6 +18,7 @@ const arsens: CaseStudyData = {
     'Correção dinâmica da leitura de CO de acordo com a temperatura e a umidade de Manaus, medidas pelo BME280',
     'Validação de cada leitura, com diagnóstico e opção de ocultar leituras com erro',
     'Dados enviados ao ThingSpeak para histórico e exibidos no painel web, que se atualiza a cada 15 s',
+    'Service worker que guarda em cache só a tela offline e os ícones: uma leitura antiga nunca aparece como se fosse atual',
   ],
   tech: [
     { name: 'ESP32', info: 'Microcontrolador com Wi-Fi que lê os sensores e envia os dados' },
@@ -25,12 +27,14 @@ const arsens: CaseStudyData = {
     { name: 'C++', info: 'Firmware do ESP32' },
     { name: 'ThingSpeak', info: 'Plataforma em nuvem que guarda o histórico das leituras' },
     { name: 'Next.js', info: 'Painel web com dados em tempo real' },
+    { name: 'PWA', info: 'Instalável no celular, com manifesto, ícones e service worker' },
     { name: 'Telegram Bot API', info: 'Envio de alertas quando os limites são ultrapassados' },
   ],
   tagStyle: 'hardware',
   links: [{ label: 'Ver projeto online', href: 'https://projeto-arsens-kappa.vercel.app/', kind: 'site' }],
   gallery: [
     { src: '/projetos/arsens/cidadao.webp', alt: 'Painel Cidadão do ARSENS mostrando qualidade do ar boa, concentração de CO, temperatura e umidade', caption: 'Painel Cidadão: como está o ar agora' },
+    { src: '/projetos/arsens/mobile-pwa.webp', alt: 'Três celulares mostrando o ARSENS instalado como app: Painel Cidadão, Painel Técnico e a tela de sem internet', caption: 'No celular como app (PWA): Cidadão, Técnico e tela offline' },
     { src: '/projetos/arsens/escala.webp', alt: 'Escala educativa de monóxido de carbono com quatro faixas, de qualidade boa a perigo', caption: 'Escala educativa baseada nos limites da EPA' },
     { src: '/projetos/arsens/tecnico.webp', alt: 'Painel Técnico com leituras do MQ-7 e do BME280, resistência do sensor e mapa do ponto de coleta', caption: 'Painel Técnico de telemetria' },
     { src: '/projetos/arsens/tecnico-historico.webp', alt: 'Tabela com o histórico de leituras de CO, temperatura, umidade e diagnóstico', caption: 'Histórico de leituras com diagnóstico' },

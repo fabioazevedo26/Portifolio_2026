@@ -50,7 +50,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
 
       <p className="font-code-sm text-code-sm text-on-surface-variant" aria-live="polite">{image.caption}</p>
 
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${total}, minmax(0, 1fr))` }}>
         {images.map((img, i) => (
           <button
             key={img.src}
